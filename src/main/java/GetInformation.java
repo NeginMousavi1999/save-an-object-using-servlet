@@ -26,6 +26,11 @@ public class GetInformation extends HttpServlet {
         String gender = request.getParameter("gender");
         String pass = request.getParameter("pass");
 
-
+        int result = userService.saveUser(name, family, age, gender, pass);
+        if (result == 1) {
+            out.println("<br>Record has been inserted");
+        } else {
+            out.println("failed to insert the data");
+        }
     }
 }
